@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Eric Zhou</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans|Roboto" rel="stylesheet"> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: Raleway;
+    }
+    div {
+        width: 600px;
+        text-align: middle;
+        margin: 5em auto;
+        padding: 50px;
+        background-color: #fff;
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    button.accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        text-align: middle;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+        font-family: "Open Sans";
+    }
+    button.accordion.active, button.accordion:hover {
+        background-color: #ddd;
+    }
+    div.panel {
+        padding: 0px;
+        background-color: white;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.4s ease-in-out;
+        opacity: 0;
+        font-family: Roboto;
+    }
+    div.panel.show {
+        opacity: 1;
+        max-height: 500px; 
+    } 
+    </style>    
+</head>
+
+<body>
+<div>
+    <h1 align="middle">Eric Zhou</h1>
+    <p align="middle">an EECS sophomore at UC Berkeley.</p>
+    <button class="accordion">Projects</button>
+    <div class="panel">
+        <p align="middle"><a href=https://github.com/zehric/animecal>Anime Calendar</a></p>
+    </div>
+    <button class="accordion">Links</button>
+    <div class="panel">
+        <p align="middle"><a href=https://github.com/zehric>GitHub</p>
+        <p align="middle"><a href=mailto:ericfzhou@berkeley.edu>ericfzhou@berkeley.edu</a></p>
+    </div>
+    <button class="accordion" onclick="location.href='./resume.pdf'">Resume</button>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    if (acc[i].textContent !== "Resume") {
+        acc[i].onclick = function() {
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+    }
+  }
+}
+</script>
+
+</body>
+</html>
