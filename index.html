@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
     body {
-        background-color: #f0f0f2;
+        background-color: #eee;
         margin: 0;
         padding: 0;
         font-family: Raleway;
@@ -20,12 +20,18 @@
         padding: 50px;
         background-color: #fff;
     }
+    .shadow {
+        -moz-box-shadow:    3px 3px 5px 0px #bbb;
+        -webkit-box-shadow: 3px 3px 5px 0px #bbb;
+        box-shadow:         3px 3px 5px 0px #bbb;
+    }
     a:link, a:visited {
         color: #38488f;
         text-decoration: none;
     }
     button.accordion {
         background-color: #eee;
+        margin: 3px;
         color: #444;
         cursor: pointer;
         padding: 18px;
@@ -34,10 +40,11 @@
         border: none;
         outline: none;
         transition: 0.4s;
+        border-radius: 1em;
         font-family: "Open Sans";
     }
     button.accordion.active, button.accordion:hover {
-        background-color: #ddd;
+        background-color: #FFEBEE;
     }
     div.panel {
         padding: 0px;
@@ -45,7 +52,7 @@
         margin: 0;
         max-height: 0;
         overflow: hidden;
-        transition: 0.4s ease-in-out;
+        transition: 0.5s ease-in-out;
         opacity: 0;
         font-family: Roboto;
     }
@@ -53,11 +60,27 @@
         opacity: 1;
         max-height: 500px; 
     } 
+    @media (max-width: 700px) {
+        body {
+            background-color: #fff;
+        }
+        div {
+            width: auto;
+            margin: 0 auto;
+            border-radius: 0;
+            padding: 1em;
+        }
+        .shadow {
+            -moz-box-shadow:    0px 0px 0px 0px;
+            -webkit-box-shadow: 0px 0px 0px 0px;
+            box-shadow:         0px 0px 0px 0px;
+        }
+    }
     </style>    
 </head>
 
 <body>
-<div>
+<div class="shadow">
     <h1 align="middle">Eric Zhou</h1>
     <p align="middle">an EECS sophomore at UC Berkeley.</p>
     <button class="accordion">Projects</button>
