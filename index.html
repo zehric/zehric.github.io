@@ -15,7 +15,7 @@
     }
     div.main {
         position: absolute;
-        left: 33vw; right: 0; bottom: 0;
+        left: 33vw; right: 0; bottom: 0; top:0;
         margin-left: 50px;
     }
     div.left {
@@ -23,6 +23,7 @@
         position: absolute;
         left: 0; bottom: 0;
         width: 33vw;
+        display: table;
     }
     div.buttons {
         padding-top: 50vh;
@@ -30,12 +31,6 @@
         text-align: right;
         margin-right: 20px;
         float: right;
-    }
-    div.content {
-        padding-bottom: 60vh;
-        text-align: left;
-        margin-left: 20px;
-        float: left;
     }
     h1 {
         font-size: 47pt;
@@ -55,7 +50,7 @@
         text-align: middle;
         border: none;
         outline: none;
-        transition: 0.5s;
+        transition: 0.4s;
         font-size: 16pt;
         font-weight: bold;
         font-family: "Open Sans", sans-serif;
@@ -65,13 +60,17 @@
     }
     div.panel {
         position: absolute;
+        padding-top: 40vh;
         margin: 0;
+        height: auto;
         max-height: 0;
+        overflow: hidden;
         opacity: 0;
         transition: opacity 0.5s ease;
     }
     div.panel.show {
         opacity: 1;
+        max-height: 500px; 
     } 
     hr {
         border: 0;
@@ -108,20 +107,18 @@
     </div>
 </div>
 <div class="main">
-    <div class="content">
-        <div class="panel" id="ABOUT">
-            <p>an EECS sophomore at UC Berkeley.</p>
-        </div>
-        <div class="panel" id="PROJECTS">
-            <p><a href=https://github.com/zehric/animecal>Anime Calendar</a></p>
-            <p><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></p>
-        </div>
-        <div class="panel" id="LINKS">
-            <p><a href=https://github.com/zehric>GitHub</a></p>
-        </div>
-        <div class="panel" id="CONTACT">
-            <p><a href=mailto:ericfzhou@berkeley.edu>ericfzhou@berkeley.edu</a></p>
-        </div>
+    <div class="panel" id="ABOUT">
+        <p>an EECS sophomore at UC Berkeley.</p>
+    </div>
+    <div class="panel" id="PROJECTS">
+        <p><a href=https://github.com/zehric/animecal>Anime Calendar</a></p>
+        <p><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></p>
+    </div>
+    <div class="panel" id="LINKS">
+        <p><a href=https://github.com/zehric>GitHub</a></p>
+    </div>
+    <div class="panel" id="CONTACT">
+        <p><a href=mailto:ericfzhou@berkeley.edu>ericfzhou@berkeley.edu</a></p>
     </div>
 </div>
 
