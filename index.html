@@ -98,7 +98,7 @@
         -webkit-filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
         filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
     }
-    @media (max-width: 700px) , (max-height: 300px){
+    @media only screen and (max-width: 700px) , only screen and (max-height: 400px){
         h1 {
             font-size: 30pt;
             font-weight: bold;
@@ -115,9 +115,10 @@
             font-size: 10pt;
         }
     }
-    @media (max-height: 300px) {
+    @media (max-height: 400px) {
         div.left {
             display: block;
+            padding-top: 50px;
         }
     }
     </style>    
@@ -136,7 +137,8 @@
 <div class="main">
     <div class="panel" id="ABOUT">
         <h2>About Me</h2>
-        <p>I'm currently a sophomore studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I've had a strong interest in technology and engineering for as long as I can remember. Some subject areas I am interested in include virtual reality (particularly of the <a href=https://www.reddit.com/r/Futurology/comments/2yvedo/how_long_until_full_immersion_vr/>fully immersive</a> flavor), machine learning, and the Internet of things. I enjoy playing video games in my free time, and like any art form, games are easily capable of delivering meaningful messages to their audience. Games also possess a characteristic no other art form has: the ability to challenge the player and to immerse her in fantastic worlds that could otherwise only lie in our imaginations.</p> </div>
+        <p>I'm currently a sophomore studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I've had a strong interest in technology and engineering for as long as I can remember. Some subject areas I am interested in include virtual reality (particularly of the <a href=https://www.reddit.com/r/Futurology/comments/2yvedo/how_long_until_full_immersion_vr/>fully immersive</a> flavor), machine learning, and the Internet of things. I enjoy playing video games in my free time, and like any art form, games are easily capable of delivering meaningful messages to their audience. Games also possess a characteristic no other art form has: the ability to challenge the player and to immerse her in fantastic worlds that could otherwise only lie in our imaginations.</p>
+    </div>
     <div class="panel" id="PROJECTS">
         <p><a href=https://github.com/zehric/animecal>Anime Calendar</a></p>
         <p><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></p>
