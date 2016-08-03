@@ -14,116 +14,137 @@
         font-family: "Open Sans", sans-serif;
     }
     div.main {
+        background-color: #fff; 
         position: absolute;
         left: 33vw; right: 0; bottom: 0; top:0;
-        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
     }
     div.left {
-        background-color: #fff;
         position: absolute;
-        left: 0; bottom: 0;
+        left: 0; bottom: 0; top:0;
         width: 33vw;
-        display: table;
-    }
-    div.buttons {
-        padding-top: 50vh;
-        padding-bottom: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        align-content: flex-start;
         text-align: right;
-        margin-right: 20px;
-        float: right;
-    }
-    h1 {
-        font-size: 47pt;
-        font-weight: 800;
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    button.accordion {
-        letter-spacing: 2px;
-        background: none;
-        margin: 0;
-        color: #444;
-        cursor: pointer;
-        padding-top: 5px;
-        text-align: middle;
-        border: none;
-        outline: none;
-        transition: 0.4s;
-        font-size: 16pt;
-        font-weight: bold;
-        font-family: "Open Sans", sans-serif;
-    }
-    button.accordion.active, button.accordion:hover {
-        color: #f44336;
     }
     div.panel {
         position: absolute;
-        padding-top: 40vh;
         margin: 0;
-        height: auto;
+        margin-left: 5vw;
         max-height: 0;
-        overflow: hidden;
+        max-width: 55vw;
+        overflow: auto;
         opacity: 0;
         transition: opacity 0.5s ease;
     }
     div.panel.show {
         opacity: 1;
-        max-height: 500px; 
+        max-height: 100vh; 
     } 
+    h1 {
+        font-size: 60pt;
+        font-weight: 800;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 5vw;
+        transform: translateY(-5vh);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    } 
+    a:hover {
+        text-decoration: underline;
+    }
+    button {
+        letter-spacing: 2px;
+        background: none;
+        margin: 0;
+        color: #444;
+        margin-right: 5vw;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        transition: 0.5s;
+        font-size: 20pt;
+        font-weight: bold;
+        font-family: "Open Sans", sans-serif;
+    }
+    button.active, button:hover {
+        color: #f44336;
+    }
     hr {
         border: 0;
         height: 1px;
         background: #9e9e9e;
     }
-    <!-- @media (max-width: 700px) { -->
-    <!--     body { -->
-    <!--         background-color: #fff; -->
-    <!--     } -->
-    <!--     div { -->
-    <!--         width: auto; -->
-    <!--         margin: 0 auto; -->
-    <!--         border-radius: 0; -->
-    <!--         padding: 1em; -->
-    <!--     } -->
-    <!-- } -->
+    div.icons {
+        margin-right: 5vw;
+        transform: translateY(7vh);
+        flex-direction: row;
+    }
+    a.icon {
+        margin-left: 1vw;
+    }
+    img:hover {
+        transition: 0.4s ease;
+        -webkit-filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
+        filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
+    }
+    @media (max-width: 700px) , (max-height: 300px){
+        h1 {
+            font-size: 30pt;
+            font-weight: bold;
+        }
+        button {
+            font-size: 12pt;
+            letter-spacing: 1px;
+        }
+        img {
+            height: 32px;
+            width: 32px;
+        }
+        p {
+            font-size: 10pt;
+        }
+    }
+    @media (max-height: 300px) {
+        div.left {
+            display: block;
+        }
+    }
     </style>    
 </head>
-
 <body>
 <div class="left">
-    <div class="buttons">
-        <h1>Eric Zhou</h1>
-        <button class="accordion">ABOUT</button>
-        <br>
-        <button class="accordion">PROJECTS</button>
-        <br>
-        <button class="accordion">LINKS</button>
-        <br>
-        <button class="accordion">CONTACT</button>
-        <br>
-        <button class="accordion" onclick="location.href='./resume.pdf'">RESUME</button>
+    <h1>Eric Zhou</h1>
+    <button>ABOUT</button>
+    <button>PROJECTS</button>
+    <button onclick="location.href='./resume.pdf'">RESUME</button>
+    <div class="icons">
+        <a class="icon" href=https://github.com/zehric><img src="img/github.svg" width="64" height="64"></a>
+        <a class="icon" href=mailto:ericfzhou@berkeley.edu><img src="img/mail.svg" width="64" height="64"></a>
     </div>
 </div>
 <div class="main">
     <div class="panel" id="ABOUT">
-        <p>an EECS sophomore at UC Berkeley.</p>
-    </div>
+        <h2>About Me</h2>
+        <p>I'm currently a sophomore studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I've had a strong interest in technology and engineering for as long as I can remember. Some subject areas I am interested in include virtual reality (particularly of the <a href=https://www.reddit.com/r/Futurology/comments/2yvedo/how_long_until_full_immersion_vr/>fully immersive</a> flavor), machine learning, and the Internet of things. I enjoy playing video games in my free time, and like any art form, games are easily capable of delivering meaningful messages to their audience. Games also possess a characteristic no other art form has: the ability to challenge the player and to immerse her in fantastic worlds that could otherwise only lie in our imaginations.</p> </div>
     <div class="panel" id="PROJECTS">
         <p><a href=https://github.com/zehric/animecal>Anime Calendar</a></p>
         <p><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></p>
     </div>
-    <div class="panel" id="LINKS">
-        <p><a href=https://github.com/zehric>GitHub</a></p>
-    </div>
-    <div class="panel" id="CONTACT">
-        <p><a href=mailto:ericfzhou@berkeley.edu>ericfzhou@berkeley.edu</a></p>
-    </div>
 </div>
 
 <script>
-var acc = document.getElementsByClassName("accordion");
+var acc = document.getElementsByTagName("button");
 var i;
 acc[0].classList.toggle("active");
 document.getElementById("ABOUT").classList.toggle("show");
