@@ -57,17 +57,18 @@
         transform: translateY(-5vh);
     }
     a:link, a:visited {
-        color: #38488f;
+        color: #616161;
         text-decoration: none;
-    } 
+    }
     a:hover {
-        text-decoration: underline;
+        color: #f44336;
+        transition: 0.4s ease;
     }
     button {
         letter-spacing: 2px;
         background: none;
         margin: 0;
-        color: #444;
+        color: #616161;
         margin-right: 5vw;
         cursor: pointer;
         border: none;
@@ -94,7 +95,7 @@
         margin-left: 1vw;
     }
     img:hover {
-        transition: 0.4s ease;
+        transition: 0.6s ease;
         -webkit-filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
         filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
     }
@@ -140,8 +141,25 @@
         <p>I'm currently a sophomore studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I've had a strong interest in technology and engineering for as long as I can remember. Some subject areas I am interested in include virtual reality (particularly of the <a href=https://www.reddit.com/r/Futurology/comments/2yvedo/how_long_until_full_immersion_vr/>fully immersive</a> flavor), machine learning, and the Internet of things. I enjoy playing video games in my free time, and like any art form, games are easily capable of delivering meaningful messages to their audience. Games also possess a characteristic no other art form has: the ability to challenge the player and to immerse her in fantastic worlds that could otherwise only lie in our imaginations.</p>
     </div>
     <div class="panel" id="PROJECTS">
-        <p><a href=https://github.com/zehric/animecal>Anime Calendar</a></p>
-        <p><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></p>
+        <h2>Things I've Worked On</h2>
+        <h3><a href=https://github.com/zehric/animecal>Anime Calendar</a></h3>
+        <p>
+        A Japanese television animation calendar desktop application. It is written in
+        Node.js and uses the Electron framework. Pulls information from the
+        <a href="https://anilist-api.readthedocs.io/en/latest/">AniList API</a>, organizes it based on air time, and displays it to the user with the front-end
+        desktop application. I have plans to also make a mobile app for this.
+        </p>
+        <h3><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></h3>
+        <p>
+        A simple application that takes in natural language and outputs machine-readable JSON, created for the purpose of <a href=https://youtu.be/z2P8ELqsbtA>controlling smart home devices with voice</a>. It is currently being used by Rently Keyless for voice control. 
+        </p>
+        <h3>Interesting Course Projects</h3>
+        <p>
+        <a href=http://datastructur.es/sp16/materials/proj/proj2/proj2.html>Text Editor</a>
+        <br>
+        <a href=http://datastructur.es/sp16/materials/proj/proj3/proj3.html>Bear Maps</a>
+        <br>
+        <a href=https://inst.eecs.berkeley.edu/~ee16b/sp16/proj/>SIXT33N</a></p>
     </div>
 </div>
 
