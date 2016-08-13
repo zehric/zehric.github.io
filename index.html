@@ -39,7 +39,7 @@
         margin: 0;
         margin-left: 5vw;
         max-height: 0;
-        max-width: 55vw;
+        max-width: 57vw;
         overflow: auto;
         opacity: 0;
         transition: opacity 0.5s ease;
@@ -48,21 +48,34 @@
         opacity: 1;
         max-height: 100vh; 
     } 
+    div.panel.mobile {
+        opacity: 0;
+        max-height: 0;
+    }
     h1 {
         font-size: 60pt;
         font-weight: 800;
         margin-top: 0;
         margin-bottom: 0;
         margin-right: 5vw;
+        margin-left: 5vw;
         transform: translateY(-5vh);
+    }
+    h1.mobile {
+        max-height: 0;
+        opacity: 0;
+    }
+    h2.mobile {
+        max-height: 0;
+        opacity: 0;
     }
     a:link, a:visited {
         color: #616161;
+        font-weight: bold;
         text-decoration: none;
     }
     a:hover {
         color: #f44336;
-        transition: 0.4s ease;
     }
     button {
         letter-spacing: 2px;
@@ -73,7 +86,6 @@
         cursor: pointer;
         border: none;
         outline: none;
-        transition: 0.5s;
         font-size: 20pt;
         font-weight: bold;
         font-family: "Open Sans", sans-serif;
@@ -95,14 +107,33 @@
         margin-left: 1vw;
     }
     img:hover {
-        transition: 0.6s ease;
         -webkit-filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
         filter: invert(40%) sepia(100%) hue-rotate(-45deg) saturate(800%);
     }
-    @media only screen and (max-width: 700px) , only screen and (max-height: 400px){
+    @media only screen and (max-width: 750px) , only screen and (max-height: 400px){
+        body {
+            background-color: #fff;
+        }
+        div.left {
+            overflow: hidden;
+            width: 0;
+        }
+        div.main {
+            left: 0;
+            display: block;
+        }
         h1 {
             font-size: 30pt;
             font-weight: bold;
+        }
+        h1.mobile {
+            font-weight: 800;
+            margin: 0;
+            margin-top: 20px;
+            margin-left: 5vw;
+            max-height: initial;
+            opacity: 1;
+            transform: initial;
         }
         button {
             font-size: 12pt;
@@ -113,7 +144,18 @@
             width: 32px;
         }
         p {
-            font-size: 10pt;
+            font-size: 11pt;
+            margin-right: 5vw;
+        }
+        div.panel {
+            max-width: initial;
+            position: static;
+            opacity: 1;
+            max-height: initial;
+        }
+        div.panel.mobile {
+            max-height: initial;
+            opacity: 1;
         }
     }
     @media (max-height: 400px) {
@@ -136,9 +178,10 @@
     </div>
 </div>
 <div class="main">
+    <h1 class="mobile">Eric Zhou</h1>
     <div class="panel" id="ABOUT">
         <h2>About Me</h2>
-        <p>I'm currently a sophomore studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I've had a strong interest in technology and engineering for as long as I can remember. Some subject areas I am interested in include virtual reality (particularly of the <a href=https://www.reddit.com/r/Futurology/comments/2yvedo/how_long_until_full_immersion_vr/>fully immersive</a> flavor), machine learning, and the Internet of things. I enjoy playing video games in my free time, and like any art form, games are easily capable of delivering meaningful messages to their audience. Games also possess a characteristic no other art form has: the ability to challenge the player and to immerse her in fantastic worlds that could otherwise only lie in our imaginations.</p>
+        <p>I'm currently a sophomore studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I've had a strong interest in technology and engineering as soon as I first laid my hands on a keyboard and tried playing around with my dad's computer. Some subject areas I am interested in include virtual reality (particularly the <a href=https://www.reddit.com/r/Futurology/comments/2yvedo/how_long_until_full_immersion_vr/>fully immersive</a> kind), machine learning, and the Internet of things. I enjoy playing video games in my free time, and like any art form, games are easily capable of delivering meaningful messages to their audiences. Games also possess a characteristic unique from all other art forms: the ability to challenge the player, intellectually and mechanically, and to immerse her in fantastic worlds that could otherwise only lie in our imaginations.</p>
     </div>
     <div class="panel" id="PROJECTS">
         <h2>Things I've Worked On</h2>
@@ -147,13 +190,13 @@
         A Japanese television animation calendar desktop application. It is written in
         Node.js and uses the Electron framework. Pulls information from the
         <a href="https://anilist-api.readthedocs.io/en/latest/">AniList API</a>, organizes it based on air time, and displays it to the user with the front-end
-        desktop application. I have plans to also make a mobile app for this.
+        desktop application. I also have plans to make a mobile app for this.
         </p>
         <h3><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></h3>
         <p>
         A simple application that takes in natural language and outputs machine-readable JSON, created for the purpose of <a href=https://youtu.be/z2P8ELqsbtA>controlling smart home devices with voice</a>. It is currently being used by Rently Keyless for voice control. 
         </p>
-        <h3>Interesting Course Projects</h3>
+        <h3>Course Projects</h3>
         <p>
         <a href=http://datastructur.es/sp16/materials/proj/proj2/proj2.html>Text Editor</a>
         <br>
@@ -161,24 +204,76 @@
         <br>
         <a href=https://inst.eecs.berkeley.edu/~ee16b/sp16/proj/>SIXT33N</a></p>
     </div>
+    <div class="panel" id="Links">
+        <h2>Links</h2>
+        <p><a href=./resume.pdf>Resume</a>
+        <br>
+        <a href=https://github.com/zehric>Github</a>
+        <br>
+        <a href=mailto:ericfzhou@berkeley.edu>Email</a> </p>
+    </div>
 </div>
 
 <script>
 var acc = document.getElementsByTagName("button");
-var i;
-acc[0].classList.toggle("active");
-document.getElementById("ABOUT").classList.toggle("show");
-for (i = 0; i < acc.length; i++) {
+var validFragment = false;
+if (location.hash) {
+    var fragment = location.hash.substring(1);
+    for (var i = 0; i < acc.length; i++) {
+        if (acc[i].textContent === fragment.toUpperCase()) {
+            acc[i].classList.toggle("active");
+            document.getElementById(fragment.toUpperCase()).classList.toggle("show");
+            validFragment = true;
+            break;
+        }
+    }
+}
+if (!location.hash || !validFragment) {
+    acc[0].classList.toggle("active");
+    document.getElementById("ABOUT").classList.toggle("show");
+}
+
+window.onpopstate = function (event) {
+    var validFragment = false;
+    var actives = document.getElementsByClassName("active");
+    var fragment = (location.hash) ? (location.hash.substring(1)) : "about";
+    if (actives[0].textContent.toLowerCase() !== fragment) {
+        if (actives.length === 1) {
+            active = actives[0];
+            active.classList.toggle("active");
+            document.getElementById(active.textContent).classList.toggle("show");
+        }
+
+        for (var i = 0; i < acc.length; i++) {
+            if (acc[i].textContent === fragment.toUpperCase()) {
+                acc[i].classList.toggle("active");
+                document.getElementById(fragment.toUpperCase()).classList.toggle("show");
+                location.hash = acc[i].textContent.toLowerCase();
+                validFragment = true;
+                break;
+            }
+        }
+
+        if (!location.hash || !validFragment) {
+            acc[0].classList.toggle("active");
+            document.getElementById("ABOUT").classList.toggle("show");
+            return;
+        }
+    }
+}
+
+for (var i = 0; i < acc.length; i++) {
     if (acc[i] && acc[i].textContent !== "RESUME") {
         acc[i].onclick = function() {
             var actives = document.getElementsByClassName("active");
-            if (actives.length) {
-                active = actives[0]
+            if (actives.length === 1) {
+                active = actives[0];
                 active.classList.toggle("active");
                 document.getElementById(active.textContent).classList.toggle("show");
             }
             this.classList.toggle("active");
             document.getElementById(this.textContent).classList.toggle("show");
+            location.hash = this.textContent.toLowerCase();
         }
     }
 }
