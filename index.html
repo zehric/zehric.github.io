@@ -37,9 +37,9 @@
     div.panel {
         position: absolute;
         margin: 0;
-        margin-left: 5vw;
+        padding-left: 5vw;
+        padding-right: 3vw;
         max-height: 0;
-        max-width: 57vw;
         overflow: auto;
         opacity: 0;
         transition: opacity 0.5s ease;
@@ -151,11 +151,13 @@
             max-width: initial;
             position: static;
             opacity: 1;
-            max-height: initial;
+            max-height: none;
         }
         div.panel.mobile {
-            max-height: initial;
             opacity: 1;
+        }
+        div.panel.show {
+            max-height: none;
         }
     }
     @media (max-height: 400px) {
@@ -163,6 +165,24 @@
             display: block;
             padding-top: 50px;
         }
+    }
+    .scrollbar {
+	float: left;
+	overflow-y: scroll;
+    }
+    .scrollbar::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+    .scrollbar::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+    .scrollbar::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
     }
     </style>    
 </head>
@@ -174,46 +194,69 @@
     <button onclick="location.href='./resume.pdf'">RESUME</button>
     <div class="icons">
         <a class="icon" href=https://github.com/zehric><img src="img/github.svg" width="64" height="64"></a>
+        <a class="icon" href=https://www.linkedin.com/in/zehric/><img src="img/iconmonstr-linkedin-3.svg" width="64" height="64"></a>
         <a class="icon" href=mailto:ericfzhou@berkeley.edu><img src="img/mail.svg" width="64" height="64"></a>
     </div>
 </div>
 <div class="main">
     <h1 class="mobile">Eric Zhou</h1>
-    <div class="panel" id="ABOUT">
+    <div class="scrollbar panel" id="ABOUT">
         <h2>About Me</h2>
-        <p>I'm currently a sophomore studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I've had a strong interest in technology and engineering as soon as I first laid my hands on a keyboard. Some subject areas I am interested in include virtual reality (particularly the <a href=https://en.wikipedia.org/wiki/Immersion_(virtual_reality)#Immersive_virtual_reality>fully immersive</a> kind), machine learning, and the Internet of things. I enjoy coding, tinkering with circuits, and solving problems. I also enjoy playing games, more appropriately called "interactive experiences", and watching anime.</p>
+        <p>I'm currently a junior studying at UC Berkeley, majoring in Electrical Engineering and Computer Science. I am strongly interested in many subject areas within EECS. Most of my current experience has been with web development (both frontend and backend), however I have greater interest in lower level work such as systems development and mixed signal IC design. I enjoy coding, tinkering with circuits, and learning about how things work. I also enjoy playing computer games and watching anime.</p>
     </div>
-    <div class="panel" id="PROJECTS">
-        <h2>Things I've Worked On</h2>
-        <h3><a href=https://github.com/zehric/animecal>Anime Calendar</a></h3>
+    <div class="scrollbar panel" id="PROJECTS">
+        <h2 style="margin-top: 6vh;">Things I've Worked On</h2>
+        <h3>Amazon Fresh Schedule Slot Management Tool</h3>
         <p>
-        A Japanese television animation calendar desktop application. It is written in
-        Node.js. Pulls information from the
-        <a href="https://anilist-api.readthedocs.io/en/latest/">AniList API</a>, organizes it based on air time. It uses the <a href="http://electron.atom.io/">Electron</a> framework as the GUI.
+        I developed a web UI for Amazon Fresh internal usage that allows for safe and quick updates to merchant schedules. One of the impacts of this tool is that it increases the speed at which Fresh can launch in new regions. The application uses a Scala backend with an AngularJS frontend.
         </p>
         <h3><a href=https://github.com/zehric/imperative-compromise>Imperative Compromise</a></h3>
         <p>
         A simple application that takes in natural language and outputs machine-readable JSON, created for the purpose of <a href=https://youtu.be/z2P8ELqsbtA>controlling smart home devices with voice</a>. I created this project for use in an Amazon Alexa Skill during my internship at <a href=http://www.rentlykeyless.com/>Rently</a>. 
         </p>
+        <h3><a href=https://github.com/zehric/animecal>Anime Calendar</a></h3>
+        <p>
+        A Japanese television animation calendar desktop application. It is written in
+        Node.js. Pulls information from the
+        <a href=https://anilist-api.readthedocs.io/en/latest/>AniList API</a>, organizes it based on air time. It uses the <a href="http://electron.atom.io/">Electron</a> framework as the GUI.
+        </p>
         <h3><a href=https://github.com/zehric/ALCodes>Adventure Land</a></h3>
         <p>
-        <a href=http://adventure.land/>Adventure Land</a> is a browser-based MMORPG that has an interesting feature: players are allowed and encouraged to automate every action by writing JavaScript. The game gets surprisingly deep, and it takes considerable thought to design a system that cannot be exploited by other human players while not actively paying attention to the game.
+        <a href="http://adventure.land/">Adventure Land</a> is a browser-based MMORPG that has an interesting feature: players are allowed and encouraged to automate every action by writing JavaScript. The game gets surprisingly deep, and it takes considerable thought to design a system that cannot be exploited by other human players while not actively paying attention to the game.
+        </p>
+        <h3><a href=https://github.com/zehric/discord-emojifier>Discord Bot</a></h3>
+        <p>
+        A bot for <a href=https://discordapp.com/developers/docs/intro>Discord</a>.
         </p>
         <h3>Course Projects</h3>
         <p>
+        <a href=https://robotics.eecs.berkeley.edu/~pister/140sp17/labs/projectV1.pdf>Mixed Signal Chip</a>
+        <br>
+        <a href=https://github.com/berkeley-cs186/course>Database</a>
+        <br>
+        <a href=http://www-inst.eecs.berkeley.edu/~cs61c/sp17/projs/04/>Performance Programming</a>
+        <br>
+        <a href=http://www-inst.eecs.berkeley.edu/~cs61c/sp17/projs/03_2>CPU</a>
+        <br>
         <a href=http://datastructur.es/sp16/materials/proj/proj2/proj2.html>Text Editor</a>
         <br>
         <a href=http://datastructur.es/sp16/materials/proj/proj3/proj3.html>Bear Maps</a>
         <br>
-        <a href=https://inst.eecs.berkeley.edu/~ee16b/sp16/proj/>SIXT33N</a></p>
+        <a href=https://inst.eecs.berkeley.edu/~ee16b/sp16/proj/>SIXT33N</a>
+        <p style="margin-bottom: 6vh;"></p>
+        </p>
     </div>
     <div class="panel" id="Links">
         <h2>Links</h2>
-        <p><a href=./resume.pdf>Resume</a>
+        <p>
+        <a href=./resume.pdf>Resume</a>
         <br>
         <a href=https://github.com/zehric>Github</a>
         <br>
-        <a href=mailto:ericfzhou@berkeley.edu>Email</a> </p>
+        <a href=https://www.linkedin.com/in/zehric>LinkedIn</a>
+        <br>
+        <a href=mailto:ericfzhou@berkeley.edu>Email</a>
+        </p>
     </div>
 </div>
 
